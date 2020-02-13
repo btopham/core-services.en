@@ -77,29 +77,10 @@ As long as implementation code is not altered, this step will not affect data co
 
 >[!Note:] The Experience Cloud Visitor ID service provides an alternative to configuring a CNAME to enable first-party cookies, but because of recent Apple ITP changes, it is still recommended to allocate a CNAME even when using the Experience Cloud ID Service. 
 
-## Ping the hostname
+## Verify SSL certificate has been installed
 
-Ping the hostname to ensure correct forwarding. All hostnames must respond to a ping to prevent data loss.
+After CNAME records are properly configured, and Adobe has confirmed installation of the certificate, confirm with Adobe Customer Care that the certificate has been installed. This may take up to a week.
 
-After CNAME records are properly configured, and Adobe has confirmed installation of the certificate, open a command prompt and ping your hostname(s). Using `mysite.com` as an example: `ping metrics.mysite.com`
-
-If everything is successfully set up, it will return something similar to the following:
-
-```Pinging mysite.com.112.2o7.net [66.235.132.232] with 32 bytes of data:
-Reply from 66.235.132.232: bytes=32 time=19ms TTL=246
-Reply from 66.235.132.232: bytes=32 time=19ms TTL=246
-Reply from 66.235.132.232: bytes=32 time=19ms TTL=246
-Reply from 66.235.132.232: bytes=32 time=19ms TTL=246
-
-Ping statistics for 66.235.132.232: Packets: Sent = 4, Received = 4, Lost = 0 (0% loss),
-Approximate round trip times in milli-seconds: Minimum = 19ms, Maximum = 19ms, Average = 19ms
-```
-
-If the CNAME records are not correctly set up or not active, it will return the following:
-
-`Ping request could not find the host. Please check the name and try again.`
-
->[!Note:] If you are using `https:// protocol`, ping will only respond after the upload date specified by the FPC specialist. In addition, be sure to ping the secure hostname and non-secure hostname to ensure that both are working correctly before updating your implementation.
 
 ## Update implementation code
 
@@ -121,3 +102,4 @@ After you have verified your hostname(s) are responding and forwarding to Adobe 
 See [Visitor Migration](https://docs.adobe.com/help/en/analytics/implementation/javascript-implementation/visitor-migration.html) in the Analytics Implementation Guide.
 
 After you have uploaded the JavaScript file, everything is configured for first-party cookie data collection. We recommend that you monitor Analytics reporting for the next several hours to ensure that data collection continues as normal. If it does not, verify that all above steps have been completed and have one of your organization's supported users contact Customer Care.
+
